@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Diagnostics;
 using System.Linq;
 using ReadingFlow.Entity;
 
@@ -11,7 +12,7 @@ namespace ReadingFlow.Model
         public static BindingList<ReadingEntry> ReadingList = new BindingList<ReadingEntry>();
 
 
-        public static void LoadReadingList(List<string> filePaths)
+        public static void LoadReadingListFromNewEntries(List<string> filePaths)
         {
             ReadingList.Clear();
             foreach (var filePath in filePaths)
@@ -20,6 +21,12 @@ namespace ReadingFlow.Model
                 ReadingList.Add(entry);
                 
             }
+        }
+
+        public static void LoadSavedReadingList(List<ReadingEntry> entries)
+        {
+            ReadingList.Clear();
+            ReadingList = new BindingList<ReadingEntry>(entries);
         }
 
         public static void SortReadingList(bool asc)
@@ -38,7 +45,7 @@ namespace ReadingFlow.Model
                 sorteList = list.OrderByDescending(l => l.Year).ToList();
             }
 
-            LoadReadingList(sorteList.Select(e => e.FilePath).ToList());
+            LoadReadingListFromNewEntries(sorteList.Select(e => e.FilePath).ToList());
 
         }
 

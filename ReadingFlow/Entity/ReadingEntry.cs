@@ -8,6 +8,7 @@ namespace ReadingFlow.Entity
     {
         public ReadingEntry(string filePath)
         {
+            Uuid = Guid.NewGuid();
             Name = Path.GetFileName(filePath);
             LastModified = File.GetLastWriteTime(filePath);
             FilePath = filePath;
@@ -15,6 +16,7 @@ namespace ReadingFlow.Entity
             Year = ParseYear(Name);
         }
 
+        public Guid Uuid { get; set; }
         public string Name { get; set; }
         public DateTime LastModified { get; set; }
         public bool Read { get; set; }
