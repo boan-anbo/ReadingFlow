@@ -1,0 +1,19 @@
+<app-componentheader headerName="Control"></app-componentheader>
+<div class="component-container">
+  <div class="flex">
+    <div>
+      Controls:
+    </div>
+    <div>
+      <button class="button-regular" (click)="readNext()">Read Next</button>
+    </div>
+    <div class="text-xs flex space-x-2 align-middle content-center">
+      <div>
+      <label>Autoopen<input [(ngModel)]="controlService.currentReadingControlOptions.autoOpenInViewer" class="rounded border" type="checkbox"/> </label>
+      </div>
+      <div>
+      <label>Unread only<input [(ngModel)]="controlService.currentReadingControlOptions.unreadOnly" class="rounded border" type="checkbox"/> </label>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,137 @@
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+@import url('https://fonts.googleapis.com/css2?family=Encode+Sans:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+/* You can add global styles to this file, and also import other style files */
+html, body {
+  margin: auto;
+  padding: 0;
+
+  height: 100vh;
+
+  font-family: 'Encode Sans', sans-serif;
+  font-weight: 500;
+
+
+  @apply text-sm bg-blue-gray-50
+
+}
+
+@layer utilities {
+  @variants responsive {
+    /* Chrome, Safari and Opera */
+    .no-scrollbar::-webkit-scrollbar {
+      display: none;
+    }
+
+    .no-scrollbar {
+      -ms-overflow-style: none; /* IE and Edge */
+      scrollbar-width: none; /* Firefox */
+    }
+  }
+}
+
+@layer components {
+  .embossed{
+
+    text-shadow: 0px 1px 1px #8f8f8f
+  }
+  .page-container {
+    @apply px-2 pb-2 bottom-divider
+
+  }
+
+  .hover-lowkey {
+    @apply hover:text-black text-gray-400 hover:underline;
+  }
+
+  .hover-item {
+    @apply hover:bg-gray-100
+  }
+
+  .no-scroll {
+    @apply overflow-hidden
+  }
+
+  .bottom-divider {
+    @apply border-b border-cool-gray-300
+  }
+
+  .bottom-light-divider{
+
+    @apply border-b border-cool-gray-200
+  }
+
+  .rf-input {
+    @apply h-6 rounded border px-2
+  }
+}
+.action-bar {
+  @apply flex space-x-2 border-b
+}
+
+.list {
+  @apply space-y-2
+}
+
+.list-item {
+  @apply cursor-pointer hover-item justify-center
+}
+
+.file-info-grid {
+  @apply text-center py-0.5 justify-center px-1
+}
+
+.mybutton {
+  @apply rounded border text-red-300
+}
+
+.button-regular {
+  @apply rounded  border hover:ring-amber-300 hover:ring-1  px-2 p-0.5 mx-1
+}
+
+
+.button-lowkey {
+  @apply hover-lowkey
+}
+
+
+
+input {
+  @apply rf-input
+}
+
+.button-nav {
+  @apply hover:bg-gray-300 cursor-pointer py-4
+}
+
+.component-container {
+  @apply px-6 py-4
+}
+
+.selected-rating {
+  @apply bg-yellow-500 rounded-full
+}
+
+.reading {
+  @apply bg-blue-200
+}
+
+.tag {
+  @apply px-2 py-1 rounded bg-blue-200 hover-item
+}
+
+.read {
+  @apply text-gray-800
+}
+
+
+.unread {
+  @apply text-black font-semibold
+}
+
+.selected {
+  @apply bg-yellow-500 border-black border-2
+}
+

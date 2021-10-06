@@ -1,0 +1,27 @@
+<app-componentheader headerName="Reading"></app-componentheader>
+<div class="component-container">
+  Reading State {{ readingService.currentReadingState | async }}
+  <div *ngIf="(readingService.currentReadingState|async) === states.READING">
+
+    Reading: {{(getReadingItem() | async)?.item.name   }}
+<!-- Actions -->
+    <div class="flex space-x-4">
+      <app-item-tagging
+        [itemIds]="[state.currentReadingItem?.item.id]"
+        [itemTagIds]="getCurrentReadingItemTagsIds()"
+
+      >
+
+      </app-item-tagging>
+    </div>
+
+  </div>
+  <div *ngIf="(readingService.currentReadingState|async) === states.IDLE">
+    Idling
+  </div>
+  <div *ngIf="(readingService.currentReadingState|async) === states.FINISHED">
+    Finished.
+  </div>
+  <div class="flex space-x-4">
+  </div>
+</div>

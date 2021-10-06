@@ -1,0 +1,31 @@
+<div class="text-xs border">
+
+  <div class="flex justify-between space-x-2 border divide-x divide-green-500 ">
+    <div class="file-info-grid">Pages: {{itemFile.pages}}</div>
+    <div class="file-info-grid">Comments: <span [ngClass]="{'text-red-800': itemFile.hasAnnotations}">{{itemFile.annotationCount}}</span></div>
+    <div class="file-info-grid">Modified: {{itemFile.fileModified | date:'short'}}</div>
+    <div class="file-info-grid">
+      <button class="button-lowkey" (click)="toggleDetail($event)">Detail</button></div>
+  </div>
+<!--  Details-->
+  <div [hidden]="!detailed">
+
+<!--    Further reading detail-->
+
+<!--    File path-->
+  <div class="flex space-x" >
+    <div class="file-info-grid hover:underline"
+         (click)="viewPathInFolder($event, itemFile.filePath)">
+      {{itemFile.filePath}}
+    </div>
+  </div>
+<!--    File future details-->
+  <div
+    class="flex justify-between space-x-2 border divide-x divide-green-500"
+  >
+    <div class="file-info-grid">Size: {{itemFile.size}}</div>
+    <div class="file-info-grid">Ext: {{itemFile.fileExtension}}</div>
+    <div class="file-info-grid">Created: {{itemFile.fileCreated | date: 'short'}}</div>
+  </div>
+  </div>
+</div>

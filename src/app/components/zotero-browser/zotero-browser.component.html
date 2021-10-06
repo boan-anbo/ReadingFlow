@@ -1,0 +1,30 @@
+<div>
+  <app-componentheader headerName="Zotero Browser"></app-componentheader>
+
+  <div class="action-bar">
+    <button class="button-regular" (click)="zoteroBrowserService.loadAllZoteroCollections()">Load Collections</button>
+  </div>
+  <div *ngIf="zoteroBrowserService.zoteroCollections" class="list" style="height:75vh">
+
+    <virtual-scroller class="h-full w-full" #scroll
+                      [items]="this.zoteroBrowserService.zoteroCollections">
+      <div *ngFor="let collection of scroll.viewPortItems" class="list-item">
+        <div class="flex">
+          <div class="text-center">
+            {{collection.data.key}}: {{collection.data.name}}
+          </div>
+          <!--        Item button -->
+          <div class="space-x-2">
+            <button class="button-regular"
+                    (click)="zoteroBrowserService.tellListViewerToAddZoteroImportSource(collection.data.key)">Link List
+            </button>
+
+            <button class="button-regular"
+                    (click)="addZoteroCollectionAsProjectList(collection)">Add To Project
+            </button>
+          </div>
+        </div>
+      </div>
+    </virtual-scroller>
+  </div>
+</div>

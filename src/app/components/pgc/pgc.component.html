@@ -1,0 +1,17 @@
+<div class="flex flex-wrap space-x-2" *ngIf="pdfPaths">
+  Pdfs: {{pdfPaths.length}}
+  <button (click)="toggleDetail()" class="button-regular">Detail</button>
+
+  <button (click)="outputMarkdown()" class="button-regular">OutputMarkdown</button>
+  <label>Output File Name:
+  <input type="text"  [(ngModel)]="projectName" /> {{projectName}}
+  </label>
+  <div class="cursor-pointer" (click)="view.showFileInFolder(outputPath)">
+  {{outputPath}}
+  </div>
+</div>
+<div *ngIf="showDetail">
+  <div *ngFor="let pdfPath of pdfPaths">
+    {{pdfPath}}
+  </div>
+</div>

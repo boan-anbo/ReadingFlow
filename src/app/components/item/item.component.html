@@ -1,0 +1,34 @@
+<div [id]="item.id" class="hover-item text-xs cursor-pointer"
+     (click)="clickItem(item, $event)"
+>
+  <div>
+    <app-item-tags [tags]="item.tags"></app-item-tags>
+  </div>
+  <div class="flex space-x-2">
+    <div>{{order}}</div>
+    <div>{{item.name}}</div>
+    <!--<div><app-item-rating [item]="item"></app-item-rating></div>-->
+  </div>
+  <div *ngIf="detailed" class="grid space-x-4">
+    <!--    Item actions -->
+    <div id=" item-file-actions" class="space-x-2 flex flex-wrap">
+      <button class="button-regular" (click)="itemService.openItemInContainer(item)">Open In Container</button>
+      <button class="button-regular" (click)="itemService.openItemInViewer(item)">View</button>
+      <button class="button-regular" (click)="itemService.setRead()">Finished</button>
+      <button class="button-regular" (click)="itemService.setUnread()">Unfinished</button>
+    </div>
+    <div class="flex space-x-2">
+      <button>Modify</button>
+      <button (click)="deleteItem()">Delete</button>
+    </div>
+
+    <!--    Item File-->
+  </div>
+
+  <div *ngIf="item.itemFiles?.length > 0">
+    <div *ngFor="let itemFile of item.itemFiles">
+      <app-item-file [itemFile]="itemFile"></app-item-file>
+    </div>
+
+  </div>
+</div>

@@ -1,0 +1,73 @@
+<div>
+  <div style="height: 5vh">
+    <app-componentheader headerName="Program" [postHeaderName]="state.currentProgram?.name"></app-componentheader>
+
+    <div class="component-container">
+      <div id="program-actions" class="flex text-xs">
+        <div>
+          <button class="button-regular" (click)="addBreak()">Add Blank</button>
+          <button class="button-regular" (click)="this.programViewerService.clearProgram()">Clear</button>
+
+          <button class="button-regular" (click)="saveProgramToFile()">Save Program</button>
+          <button class="button-regular" (click)="loadProgramToFile()">Load Program</button>
+          <button class="button-regular" (click)="programViewerService.loadProgram()">Reload Program</button>
+          <button class="button-regular" (click)="programViewerService.setAllUnread()">Set All Unread</button>
+
+          <button class="button-regular" (click)="addAllItemsToList()">Add All Items To List</button>
+
+          <button class="button-regular" (click)="deleteProgram()">Delete Program</button>
+
+          <!--      <button class="button-regular" (click)="refreshList()">RefreshList</button>-->
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div >
+    <div id="program-list" *ngIf="programViewerService.program" style="height: 75vh">
+      <virtual-scroller class="h-full w-full" #scroll
+                        [items]="this.programViewerService.program.programItems">
+        <div *ngFor="let programItem of scroll.viewPortItems; let itemIndex = index; trackBy: trackBy">
+          <div
+            [ngClass]="{
+      'reading': isReading(programItem),
+      'selected': programViewerService.programItemSelections.isItemIdSelected(programItem.id) }"
+          >
+
+            <!--          program item level actions-->
+            <div class="flex space-x-2">
+              <button
+
+                (click)="doItem(programItem, $event)"
+                class="button-lowkey"
+              >Select
+              </button>
+              <button
+
+                (click)="readSelectedProgramItem(programItem, $event)"
+                class="button-lowkey"
+              >Read This
+              </button>
+
+              <button
+
+                class="button-lowkey"
+                (click)="programViewerService.reCheckItemFileAndReload(programItem)"
+              >Recheck File
+              </button>
+            </div>
+            <!--          Display list item-->
+            <div>
+              <app-program-list-item
+                [programItem]="programItem"
+                [entryIndex]="programItem.order"
+                (itemToDelete)="onItemDelete($event)"
+              >
+              </app-program-list-item>
+            </div>
+          </div>
+        </div>
+      </virtual-scroller>
+    </div>
+  </div>
+</div>

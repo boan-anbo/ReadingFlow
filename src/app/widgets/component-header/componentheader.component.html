@@ -1,0 +1,20 @@
+<div class="
+text-left px-4 flex flex-grow space-x-2 mb-2 bottom-light-divider font
+">
+
+  <div *ngIf="showCurrentProjectName && this.state.currentProject">
+    <span class="no-scroll overflow-hidden">
+    ({{this.state.currentProject?.name}})
+    </span>
+  </div>
+
+  <div class="flex embossed">
+    <div>{{headerName}}
+    </div>
+
+    <div>
+      <div *ngIf="postHeaderName?.length > 0">: {{postHeaderName}}</div>
+    </div>
+  </div>
+
+</div>

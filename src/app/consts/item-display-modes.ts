@@ -1,0 +1,5 @@
+export enum ITEM_DISPLAY_MODE {
+  MINIMAL,
+  CONCISE,
+  DETAILED
+}

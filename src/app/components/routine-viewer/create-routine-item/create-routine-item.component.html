@@ -1,0 +1,22 @@
+<div>
+  {{selectedType}}
+  <div class="flex space-x-2">
+      <div *ngFor="let conditionType of conditionTypes; index as i">
+        <label for="{{conditionType.name}}"> {{conditionType.name}} </label>
+        <input type="radio" id="{{conditionType.name}}" value="{{conditionType.value}}" name="countries" [(ngModel)]="selectedType">
+      </div>
+  </div>
+  <div>
+   <div *ngFor="let sourceListId of sourceListIds">
+     {{sourceListId}}
+   </div>
+  </div>
+
+  <app-add-name-input
+    entityName="Routine Item Name"
+    defaultName="One Routine Item"
+    (createNewEntity)="createRoutineItemName($event)"
+  ></app-add-name-input>
+
+<!--  <button class="button-regular" (click)="createItem()">Add Routine Item</button>-->
+</div>

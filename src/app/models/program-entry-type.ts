@@ -1,0 +1,4 @@
+export enum PROGRAM_ENTRY_TYPE {
+  PROGRAM_BREAK,
+  PROGRAM_ITEM
+}

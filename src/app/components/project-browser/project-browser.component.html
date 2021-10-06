@@ -1,0 +1,27 @@
+<div class="page-container">
+
+  <app-componentheader headerName="Project Browser"></app-componentheader>
+  <div class="text-center">
+    <!--    Actions -->
+    <app-add-name-input
+      entityName="Project"
+      (createNewEntity)="onNewProjectCreated($event)"
+    ></app-add-name-input>
+  </div>
+
+  <div class="flex-row text-center">
+    <div
+      class="button-nav"
+      *ngFor="let project of getProjects()"
+      (click)="setCurrentProject(project)"
+    >
+      {{project.name}}
+      <div>
+        <!--        {{project.id}}-->
+      </div>
+
+    </div>
+
+  </div>
+
+</div>

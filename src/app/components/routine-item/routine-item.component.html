@@ -1,0 +1,52 @@
+<div class="component-container">
+
+  <div class="flex">
+    <div>
+      {{routineItem.name}}
+    </div>
+
+    <div class="action-bar">
+      <button class="button-regular" (click)="deleteRoutineItem(routineItem)">Delete Item</button>
+    </div>
+    <!--    Import sources-->
+    <div class="flex space-x-2">
+<!--      A list of source lists-->
+      <div *ngFor="let sourceList of routineItem.sourceLists">
+        <!--        Source List info-->
+        <div class="flex space-x-2">
+
+          <div>
+            List name: {{sourceList.name}}
+          </div>
+          <div>
+            Readings:
+            {{sourceList.listItems.length}}
+          </div>
+          <div>
+            Last Updated:
+            {{sourceList.updated | date:'short'}}
+          </div>
+        </div>
+
+        <div class="action-bar">
+          <button class="button-regular" (click)="toList(sourceList)">To List</button>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+  <div>
+    <div *ngFor="let condition of routineItem.conditions" class="flex space-x-4">
+      <div>
+        Type: {{conditionTypes[condition.type]}}
+      </div>
+      <div>
+        Quantity: {{condition.value}}
+      </div>
+    </div>
+  </div>
+  <!--    <div>-->
+  <!--      {{routineItem | json }}-->
+  <!--    </div>-->
+</div>

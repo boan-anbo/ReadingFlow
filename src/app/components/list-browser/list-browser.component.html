@@ -1,0 +1,20 @@
+<app-componentheader [headerName]="'List Browser'"></app-componentheader>
+<div class="container">
+
+  <div class="text-center">
+    <!--    Actions -->
+    <app-add-name-input
+      entityName="List"
+      (createNewEntity)="onNewListCreated($event)"
+    ></app-add-name-input>
+  </div>
+
+
+  <div class="flex-row text-center">
+    <div class="button-nav" *ngFor="let list of getLists()" (click)="toList(list)">
+      <div>{{list.id}}</div>
+      <div>{{list.name}}: {{list.listItems.length}}</div>
+    </div>
+
+  </div>
+</div>

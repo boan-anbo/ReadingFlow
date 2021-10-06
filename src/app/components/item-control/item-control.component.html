@@ -1,0 +1,21 @@
+<div>
+  <app-pgc [pdfPaths]="itemControlService.selectedItemFilePaths" ></app-pgc>
+</div>
+
+<div *ngIf="itemControlService?.selectedItems?.length > 0">
+<app-item-tagging
+  (tagsApplied)="onTagsApplied($event)"
+  [itemIds]="itemControlService.getSelecteItemIds()"
+></app-item-tagging>
+</div>
+<div class="flex flex-row space-x-2 bg-yellow-50">
+  <div *ngIf="itemControlService.selectedItems.length === 0">
+    You selected no item.
+  </div>
+  <div *ngIf="itemControlService.selectedItems.length === 1">
+    <app-item [detailed]="true" [item]="itemControlService.selectedItems[0]"></app-item>
+  </div>
+  <div *ngIf="itemControlService.selectedItems.length > 1">
+    You selected {{itemControlService.selectedItems.length}} items.
+  </div>
+</div>

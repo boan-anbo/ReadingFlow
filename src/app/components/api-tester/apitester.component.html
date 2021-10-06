@@ -1,0 +1,18 @@
+<div class="component-container">
+  <div >
+    <div>
+<!--      <input type="text" [ngClass]="url"/>-->
+      <button class="button-regular" (click)="testSignalR()">Test SignalR Message</button>
+    </div>
+    <div>
+      {{url}}
+      <input type="text" [ngClass]="url"/>
+      <button class="button-regular" (click)="loadResult()">Test</button>
+    </div>
+
+    <div *ngIf="result" class="bg-gray-100">
+      <pre>{{ result | json }}</pre>
+
+    </div>
+  </div>
+</div>

@@ -1,0 +1,32 @@
+<div class="page-container">
+  <app-componentheader [headerName]="'Tagging'"></app-componentheader>
+<div class="flex">
+<div>
+  <button class="button-regular" (click)="applyTags()">Apply</button>
+</div>
+  <div>
+    <input type="text" [(ngModel)]="newTagName"/>
+    <button class="button-regular"
+            [disabled]="newTagName.length < 2"
+            (click)="addTag(newTagName)">Add Tag
+    </button>
+  </div>
+<!--  <div>-->
+<!--    <button class="button-regular" (click)="refreshTags()">Refresh</button>-->
+<!--  </div>-->
+
+  <div class="flex space-x-2">
+    <div
+      *ngFor="let tag of itemTaggingService.allTags"
+    >
+      <div
+        (click)="selectTag(tag)"
+        [ngClass]="{'selected': isTagSelected(tag)}"
+        class="bg-blue-200 rounded px-2 hover-item cursor-pointer">
+        {{tag.name}}
+      </div>
+    </div>
+
+  </div>
+</div>
+</div>

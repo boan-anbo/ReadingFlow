@@ -1,0 +1,18 @@
+<div class="flex space-x-4">
+
+  <div>Server Status: {{state.serverStatus | titlecase}}</div>
+
+  <button class="button-regular" (click)="startServer()">StartServer</button>
+  <button class="button-regular" (click)="stopServer()">StopServer</button>
+
+  <button class="button-regular" (click)="restartServer()">Restart Server</button>
+
+  <div class="flex space-x-4">
+    <div class="cursor-pointer hover:underline">
+      Current Server: <span (click)="openServerInBrowser(this.backend.apiPort)">http://localhost:{{this.backend.apiPort}}</span>
+    </div>
+    <div>
+      Current Server pid {{this.backend.currentServerProcess?.pid}}
+    </div>
+  </div>
+</div>

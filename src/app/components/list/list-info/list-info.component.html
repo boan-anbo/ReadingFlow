@@ -1,0 +1,10 @@
+<div class="flex flex-wrap space-x-2 divide-x-2">
+  <div>
+    List Id: {{list.id}}
+  </div>
+  <div>List Items: {{list.listItems.length}}</div>
+  <div>
+    <app-list-links [importSources]="list.importSources"></app-list-links>
+  </div>
+</div>
+

@@ -1,0 +1,22 @@
+<div class="component-container">
+  <app-componentheader [headerName]="'Routine Viewer'" [postHeaderName]="routineViewerService?.routine?.name"></app-componentheader>
+<!--  {{routineViewerService.routine | json }}-->
+
+  <button class="button-regular" (click)="generateProgram()">Generate Program</button>
+  <button class="button-regular" (click)="addCurrentList()">Add Current List</button>
+  <button class="button-regular" (click)="deleteRoutine()">Delete Routine</button>
+  <app-create-routine-item
+    [routineId]="routineViewerService.currentRoutineId"
+    [sourceListIds]="routineViewerService.sourceListIds.getSelectedIds()"
+    (addedItem)="onRoutineItemAdded()"
+  ></app-create-routine-item>
+<!--  Routine item lists-->
+<div *ngIf="routineViewerService.hasRoutineItems">
+  <div *ngFor="let routineItem of routineViewerService.routine.routineItems">
+<!--    Individual routine item -->
+    <app-routine-item [routineItem]="routineItem"></app-routine-item>
+
+  </div>
+</div>
+
+</div>

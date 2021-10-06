@@ -1,0 +1,19 @@
+{
+  "name": "rf",
+  "version": "0.0.1",
+  "main": "main.js",
+  "private": true,
+  "dependencies": {
+    "@electron/remote": "1.2.0",
+    "electron-log": "^4.4.1",
+    "fs-extra": "^10.0.0",
+    "get-port": "^5.1.1",
+    "getos": "^3.2.1",
+    "tree-kill": "^1.2.2"
+  },
+  "devDependencies": {
+    "@types/node": "^16.6.1",
+    "ts-node": "^10.2.0",
+    "typescript": "^4.3.5"
+  }
+}

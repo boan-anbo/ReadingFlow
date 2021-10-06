@@ -1,0 +1,24 @@
+<div class="page-container">
+
+  <app-componentheader [headerName]="'Program Browser'"></app-componentheader>
+  <div>
+    <!--    Actions -->
+    <app-add-name-input
+      entityName="Program"
+      (createNewEntity)="onNewProgramCreated($event)"
+    ></app-add-name-input>
+  </div>
+  <div class="flex-row text-center">
+    <div *ngIf="!state.isProjectSelected()">
+      Select a program first.
+    </div>
+    <div *ngIf="state.isProjectSelected() && !hasPrograms()">
+      Found No Programs.
+    </div>
+    <div class="button-nav" *ngFor="let program of getPrograms()" (click)="toProgram(program)">
+      <div>{{program.id}}</div>
+      <div>{{program.name}}: {{program.programItems.length}}</div>
+    </div>
+
+  </div>
+</div>

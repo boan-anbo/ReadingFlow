@@ -1,0 +1,10 @@
+<div class="text-xs border">
+
+  <div class="flex justify-between space-x-2 border divide-x divide-green-500">
+    <div>Started: {{programItem.started | date:'short'}}</div>
+    <div>Ended: {{programItem.ended | date:'short'}}</div>
+    <div>Time Used: {{programItem.timeUsed?.split(".")[0]}}</div>
+    <div>Last Read: {{programItem.lastRead | date:'short'}}</div>
+  </div>
+
+</div>

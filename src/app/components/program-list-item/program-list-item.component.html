@@ -1,0 +1,27 @@
+<div class="component-container"
+
+>
+
+  <div *ngIf="programItem">
+    <!--    Dynamic id for later use of scoll into view-->
+    <div [id]="programItem.id"
+         [ngClass]="{
+
+     'read': isRead(programItem),
+      'unread': isUnread(programItem) }"
+    >
+
+      <app-item [itemIndex]="entryIndex"
+                [detailed]="detailed"
+                [order]="programItem.order"
+                [item]="getEntryItem(programItem)" (itemToDelete)="onItemDelete($event)"></app-item>
+
+      <app-program-item-detail [programItem]="programItem"></app-program-item-detail>
+    </div>
+
+  </div>
+
+  <div *ngIf="isBreak" id="entry-break">
+    Break: {{programItem.duration}}
+  </div>
+</div>

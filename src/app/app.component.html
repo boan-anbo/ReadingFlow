@@ -1,0 +1,65 @@
+<div fxLayout="column" fxFlexFill>
+  <div id="main-header" style="position: sticky; top: 0; min-height: 10vh">
+    <app-status></app-status>
+    <app-importer></app-importer>
+  </div>
+  <!--  center -->
+  <div fxLayout="row" fxFlex="auto"
+       style="
+overflow-x: hidden; height: 80vh
+"
+  >
+    <!--    left navigation -->
+    <div fxFlex="10"
+         style="overflow-x: hidden;
+"
+    >
+      <app-sidepanel></app-sidepanel>
+    </div>
+    <div fxFlex="70"
+         style="
+       height: 80vh;
+       width: 100%;
+"
+    >
+      <div>
+        <div fxLayout="row" fxFlexFill>
+          <!--          Main window left -->
+          <div fxFlex="50"
+               style="
+               overflow-x: hidden
+               "
+
+          >
+            <router-outlet></router-outlet>
+          </div>
+
+          <!--          Main window right -->
+          <div fxFlex="50"
+               style="
+               overflow-x: hidden
+          "
+          >
+            <!--            <app-program></app-program>-->
+            <router-outlet name="second"></router-outlet>
+          </div>
+        </div>
+      </div>
+
+    </div>
+    <!--    Right panel-->
+
+    <div fxFlex="20"
+         style="overflow-x: hidden;
+"
+    >
+      <app-item-control></app-item-control>
+    </div>
+  </div>
+  <!--  footer-->
+  <div style="position: sticky; bottom:0;height: 10vh">
+    <app-reading></app-reading>
+    <app-reading-control></app-reading-control>
+
+  </div>
+</div>

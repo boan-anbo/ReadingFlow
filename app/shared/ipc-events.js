@@ -1,0 +1,99 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.WEBCONTENTS_READY_FOR_IPC_SIGNAL = exports.ipcRendererEvents = exports.ipcMainEvents = exports.IpcEvents = void 0;
+var IpcEvents;
+(function (IpcEvents) {
+    IpcEvents["EXAMPLE_RENDERER_ACTION"] = "EXAMPLE_RENDERER_ACTION";
+    IpcEvents["OPEN_SETTINGS"] = "OPEN_SETTINGS";
+    IpcEvents["LOAD_GIST_REQUEST"] = "LOAD_GIST_REQUEST";
+    IpcEvents["LOAD_ELECTRON_EXAMPLE_REQUEST"] = "LOAD_ELECTRON_EXAMPLE_REQUEST";
+    IpcEvents["FIDDLE_RUN"] = "FIDDLE_RUN";
+    IpcEvents["FIDDLE_PACKAGE"] = "FIDDLE_PACKAGE";
+    IpcEvents["FIDDLE_MAKE"] = "FIDDLE_MAKE";
+    IpcEvents["MONACO_EXECUTE_COMMAND"] = "MONACO_EXECUTE_COMMAND";
+    IpcEvents["MONACO_TOGGLE_OPTION"] = "MONACO_TOGGLE_OPTION";
+    IpcEvents["FS_NEW_FIDDLE"] = "FS_NEW_FIDDLE";
+    IpcEvents["FS_NEW_TEST"] = "FS_NEW_TEST";
+    IpcEvents["FS_OPEN_FIDDLE"] = "FS_OPEN_FIDDLE";
+    IpcEvents["FS_OPEN_TEMPLATE"] = "FS_OPEN_TEMPLATE";
+    IpcEvents["FS_SAVE_FIDDLE"] = "FS_SAVE_FIDDLE";
+    IpcEvents["FS_SAVE_FIDDLE_AS"] = "FS_SAVE_FIDDLE_AS";
+    IpcEvents["FS_SAVE_FIDDLE_GIST"] = "FS_SAVE_FIDDLE_GIST";
+    IpcEvents["FS_SAVE_FIDDLE_FORGE"] = "FS_SAVE_FIDDLE_FORGE";
+    IpcEvents["FS_PICK_FILES_DIALOG"] = "FS_PICK_FILES_DIALOG";
+    IpcEvents["FS_SAVE_FIDDLE_ERROR"] = "FS_SAVE_FIDDLE_ERROR";
+    IpcEvents["SHOW_WARNING_DIALOG"] = "SHOW_WARNING_DIALOG";
+    IpcEvents["SHOW_CONFIRMATION_DIALOG"] = "SHOW_CONFIRMATION_DIALOG";
+    IpcEvents["SHOW_WELCOME_TOUR"] = "SHOW_WELCOME_TOUR";
+    IpcEvents["CLEAR_CONSOLE"] = "CLEAR_CONSOLE";
+    IpcEvents["LOAD_LOCAL_VERSION_FOLDER"] = "LOAD_LOCAL_VERSION_FOLDER";
+    IpcEvents["SHOW_LOCAL_VERSION_FOLDER_DIALOG"] = "SHOW_LOCAL_VERSION_FOLDER_DIALOG";
+    IpcEvents["BISECT_COMMANDS_TOGGLE"] = "BISECT_COMMANDS_TOGGLE";
+    IpcEvents["SHOW_INACTIVE"] = "SHOW_INACTIVE";
+    IpcEvents["BEFORE_QUIT"] = "BEFORE_QUIT";
+    IpcEvents["CONFIRM_QUIT"] = "CONFIRM_QUIT";
+    IpcEvents["GET_APP_PATHS"] = "GET_APP_PATHS";
+    IpcEvents["SELECT_ALL_IN_EDITOR"] = "SELECT_ALL_IN_EDITOR";
+    IpcEvents["BLOCK_ACCELERATORS"] = "BLOCK_ACCELERATORS";
+    IpcEvents["SET_SHOW_ME_TEMPLATE"] = "SET_SHOW_ME_TEMPLATE";
+    IpcEvents["CLICK_TITLEBAR_MAC"] = "CLICK_TITLEBAR_MAC";
+    IpcEvents["TASK_BISECT"] = "TASK_BISECT";
+    IpcEvents["TASK_TEST"] = "TASK_TEST";
+    IpcEvents["TASK_DONE"] = "TASK_DONE";
+    IpcEvents["OUTPUT_ENTRY"] = "OUTPUT_ENTRY";
+    IpcEvents["EXAMPLE_MAIN_ACTION"] = "EXAMPLE_MAIN_ACTION";
+    IpcEvents["CORE_GET_OS_TYPE"] = "CORE_GET_OS_TYPE";
+    IpcEvents["CORE_START_SERVER"] = "CORE_START_SERVER";
+    IpcEvents["CORE_STOP_SERVER"] = "CORE_STOP_SERVER";
+    IpcEvents["CORE_GET_PORT"] = "CORE_GET_PORT";
+    IpcEvents["NOTIFY_RF_SERVER_STARTED"] = "NOTIFY_RF_SERVER_STARTED";
+})(IpcEvents = exports.IpcEvents || (exports.IpcEvents = {}));
+exports.ipcMainEvents = [
+    IpcEvents.FS_PICK_FILES_DIALOG,
+    IpcEvents.FS_SAVE_FIDDLE,
+    IpcEvents.SHOW_WARNING_DIALOG,
+    IpcEvents.SHOW_CONFIRMATION_DIALOG,
+    IpcEvents.SHOW_LOCAL_VERSION_FOLDER_DIALOG,
+    IpcEvents.SHOW_INACTIVE,
+    IpcEvents.CONFIRM_QUIT,
+    IpcEvents.SET_SHOW_ME_TEMPLATE,
+    IpcEvents.BLOCK_ACCELERATORS,
+    IpcEvents.CLICK_TITLEBAR_MAC,
+    IpcEvents.OUTPUT_ENTRY,
+    IpcEvents.TASK_DONE,
+    IpcEvents.CORE_GET_OS_TYPE,
+    IpcEvents.CORE_START_SERVER,
+    IpcEvents.CORE_STOP_SERVER,
+    IpcEvents.CORE_GET_PORT,
+];
+exports.ipcRendererEvents = [
+    IpcEvents.EXAMPLE_RENDERER_ACTION,
+    IpcEvents.OPEN_SETTINGS,
+    IpcEvents.LOAD_GIST_REQUEST,
+    IpcEvents.LOAD_ELECTRON_EXAMPLE_REQUEST,
+    IpcEvents.FIDDLE_RUN,
+    IpcEvents.FIDDLE_PACKAGE,
+    IpcEvents.FIDDLE_MAKE,
+    IpcEvents.MONACO_EXECUTE_COMMAND,
+    IpcEvents.MONACO_TOGGLE_OPTION,
+    IpcEvents.FS_NEW_FIDDLE,
+    IpcEvents.FS_NEW_TEST,
+    IpcEvents.FS_OPEN_FIDDLE,
+    IpcEvents.FS_OPEN_TEMPLATE,
+    IpcEvents.FS_SAVE_FIDDLE,
+    IpcEvents.FS_SAVE_FIDDLE_AS,
+    IpcEvents.FS_SAVE_FIDDLE_FORGE,
+    IpcEvents.FS_SAVE_FIDDLE_GIST,
+    IpcEvents.SHOW_WELCOME_TOUR,
+    IpcEvents.CLEAR_CONSOLE,
+    IpcEvents.LOAD_LOCAL_VERSION_FOLDER,
+    IpcEvents.BISECT_COMMANDS_TOGGLE,
+    IpcEvents.BEFORE_QUIT,
+    IpcEvents.GET_APP_PATHS,
+    IpcEvents.SELECT_ALL_IN_EDITOR,
+    IpcEvents.SET_SHOW_ME_TEMPLATE,
+    IpcEvents.TASK_BISECT,
+    IpcEvents.TASK_TEST,
+];
+exports.WEBCONTENTS_READY_FOR_IPC_SIGNAL = 'WEBCONTENTS_READY_FOR_IPC_SIGNAL';
+//# sourceMappingURL=ipc-events.js.map

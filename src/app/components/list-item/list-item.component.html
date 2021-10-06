@@ -1,0 +1,23 @@
+<div id="item-entry-panel" class="component-container">
+<!--  List Item actions-->
+  <div >
+    <button class="button-regular" (click)="toggleSkip(listItem)">Skip</button>
+  </div>
+<!--  List Item statuc-->
+  <div>
+
+    Skip? {{listItem.skip}}
+  </div>
+  <div [ngClass]="{
+  'selected': selected,
+  'read': listItem.read,
+  'unread': !listItem.read
+  }" >
+  <app-item
+    (itemClicked)="onItemClicked($event)"
+    [order]="listItem.order" [item]="listItem.item" (itemToDelete)="onItemDelete($event)"></app-item>
+  </div>
+  <div >
+<!--    Add logic and actions specific to LIST ITEM here.-->
+    </div>
+</div>

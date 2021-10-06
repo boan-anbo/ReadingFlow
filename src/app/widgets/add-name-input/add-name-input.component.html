@@ -1,0 +1,4 @@
+<div class="text-xs">
+  <input type="text" class="rf-input" [(ngModel)]="_newEntityName"  />
+  <button class="button-regular" [disabled]="_newEntityName?.length < 2" (click)="addEntity(_newEntityName)">Add {{entityName | titlecase}}</button>
+</div>

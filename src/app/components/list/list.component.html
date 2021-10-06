@@ -1,0 +1,58 @@
+<div style="height: 80vh">
+  <!--  Upper half -->
+  <div style="height: 10vh">
+    <app-componentheader
+      [postHeaderName]="state.currentList?.name" headerName="List Viewer"></app-componentheader>
+
+    <div class="component-containe"
+
+    >
+      <!--    total avaiable  height: 80vh-->
+
+      <!--    List info and action-->
+      <div id="list-info-and-actions">
+        <!--    Info -->
+        <div *ngIf="listViewerService.currentList">
+
+          <app-list-info [list]="listViewerService.currentList"></app-list-info>
+        </div>
+        <!--    Actions -->
+        <div class="flex space-x-2">
+
+          <!--          Buttons that works with empty list-->
+          <div class="action-bar">
+            <button class="button-regular" (click)="syncWithZotero()">Sync With Zotero</button>
+            <button class="button-regular" (click)="saveList(getCurrentList())">Save List</button>
+            <button class="button-regular" (click)="loadFile()">Refresh List</button>
+            <button class="button-regular" (click)="listViewerService.deleteList()">Delete List</button>
+          </div>
+          <!--          Buttons that works with list items-->
+          <div class="action-bar" *ngIf="listViewerService.currentList?.listItems.length > 0">
+            <button class="button-regular" (click)="selectAllListItems()">Select All</button>
+            <button class="button-regular" (click)="invertListItemSelections()">Invert</button>
+            <button class="button-regular" (click)="addSelectedItemsToProgram()">Add Selected Items To Program</button>
+            <button class="button-regular" (click)="listViewerService.analyzeListPdfs()">Analyze List Pdfs</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!--    List -->
+  <div style="height: 70vh" *ngIf="listViewerService?.currentList?.listItems?.length > 0">
+    <virtual-scroller class="h-full w-full" #scroll
+                      [items]="this.listViewerService.currentList.listItems">
+      <div *ngFor="let listItem of scroll.viewPortItems; let index = index; trackBy: trackBy">
+        <!--        List Item Actions -->
+        <div
+          [ngClass]="{'checked': currentListSelections.isItemIdSelected(listItem.id)}"
+        >
+          <app-list-item
+            (listItemClicked)="doItem($event)"
+            [listItem]="listItem" [selected]="currentListSelections.isItemIdSelected(listItem.id)"
+            (itemToDelete)="listViewerService.removeItem($event)"></app-list-item>
+        </div>
+      </div>
+    </virtual-scroller>
+  </div>
+
+</div>
